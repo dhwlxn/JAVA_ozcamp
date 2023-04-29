@@ -20,5 +20,8 @@
   <mappers>
     <mapper resource="com/mybatis/CampMapper.xml"/>
     <mapper resource="com/mybatis/UserMapper.xml"/>
+    <mapper resource="com/mybatis/WishlistMapper.xml"/>
+    <mapper resource="com/mybatis/CommentMapper.xml"/>
+    <mapper resource="com/mybatis/LocationMapper.xml"/>
   </mappers>
 </configuration>

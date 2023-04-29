@@ -7,6 +7,8 @@
 <!--캠핑장 이름으로 CID 가져오기-->
     <select id="findByName" parameterType="string" resultType="com.dto.CampDTO">
         select CID, name, address
+        from CAMP
+        where name like '%'||#{name}||'%'
     </select>
 
 <!--태그 이용하여 CID, 캠핑장이름, 위치, 위경도 가져오기-->

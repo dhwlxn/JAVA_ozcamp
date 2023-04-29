@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.LocationMapper">
+
+<!--구 동 입력받아서 위 경도 반환-->
+    <select id="findByDistrict" parameterType="com.dto.LocationDTO" resultType="com.dto.LocationDTO">
+
+    </select>
+
+</mapper>
