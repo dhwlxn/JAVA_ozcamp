@@ -129,7 +129,7 @@ public class Menu {
 		System.out.println();
 		System.out.println();
 		System.out.println();
-		System.out.println("ѧѦ ѧ  ︵͡︵  ̢ ̱ ̧̱ι̵̱̊ι̶̨̱ ̶̱   ︵ Ѧѧ  ︵͡ ︵   ѧ Ѧ    ̵̗̊o̵̖  ︵  ѦѦ ѧ ");
+		System.out.println("                   ___________________________oz_camp___________________________");
 		System.out.println();
 		System.out.println();
 		System.out.println();

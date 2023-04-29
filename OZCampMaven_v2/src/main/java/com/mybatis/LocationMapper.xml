@@ -6,7 +6,9 @@
 
 <!--구 동 입력받아서 위 경도 반환-->
     <select id="findByDistrict" parameterType="com.dto.LocationDTO" resultType="com.dto.LocationDTO">
-
+	select latitude, longtitude
+	from CAMP
+	where Gu = #{gu} and Dong = #{dong}
     </select>
 
 </mapper>
