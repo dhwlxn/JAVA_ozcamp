@@ -79,12 +79,7 @@ public class Menu {
 	
 	// 사용자 메뉴
 	public static void userMenu() {
-		
-		menuTitle("# menu");
-		System.out.println("                                          # 1. 캠핑장 검색");
-		System.out.println("                                          # 2. 캠핑장 추천");
-		System.out.println("                                          # 3. 마이 페이지");
-		
+
 		// 사용자 입력받기
 		Scanner input = new Scanner(System.in);
 		String menuInput;
@@ -122,6 +117,7 @@ public class Menu {
 //	    
 //	    
 
+
 	// 새로운 메뉴를 위한 공백
 	public static void spaceForNew() {
 	
@@ -129,11 +125,12 @@ public class Menu {
 		System.out.println();
 		System.out.println();
 		System.out.println();
-		System.out.println("ѧѦ ѧ  ︵͡︵  ̢ ̱ ̧̱ι̵̱̊ι̶̨̱ ̶̱   ︵ Ѧѧ  ︵͡ ︵   ѧ Ѧ    ̵̗̊o̵̖  ︵  ѦѦ ѧ ");
+
 		System.out.println();
 		System.out.println();
 		System.out.println();
 		System.out.println();
+
 	}
 	
 }
