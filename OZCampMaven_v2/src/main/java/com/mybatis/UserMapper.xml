@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.UserMapper">
+
+<!-- 전체 조회 -->
+	<select id="findAll" resultType="com.dto.UserDTO">
+		select UID, ID, PW
+		from CAMPER
+		
+	
+	</select>
+
+
+<!--가입-->
+    <insert id="register" parameterType="com.dto.UserDTO">
+		insert into camper 
+		values (#{CUID}, #{ID}, #{PW})
+    </insert>
+
+<!--로그인을 위해 PW 가져오기-->
+    <select id="logIn" parameterType="com.dto.UserDTO" resultType="String">
+		select PW
+		from camper
+		where ID = #{ID}
+    </select>
+    
+  <!--로그인을 통해 CUID 가져오기-->
+    <select id="getcuid" parameterType="com.dto.UserDTO" resultType="int">
+		select CUID
+		from camper
+		where ID = #{ID}
+    </select>
+
+<!--계정 삭제-->
+    <delete id="delete" parameterType="int">
+
+    </delete>
+
+
+</mapper>

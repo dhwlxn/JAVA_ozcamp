@@ -1,4 +1,4 @@
-package page;
+package menu;
 
 public class User {
 
