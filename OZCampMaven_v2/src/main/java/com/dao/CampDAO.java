@@ -18,13 +18,13 @@ public class CampDAO {
         return list;
     }
 
-    public List<CampDTO> printNameList(SqlSession session, ArrayList<Integer> CIDs){
-        List<CampDTO> list = session.selectList("com.mybatis.CampMapper.printNameList", CIDs);
+    public List<CampDTO> printNameList(SqlSession session, ArrayList<Integer> cIDs){
+        List<CampDTO> list = session.selectList("com.mybatis.CampMapper.printNameList", cIDs);
         return list;
     }
 
-    public List<CampDTO> printDetailByCID(SqlSession session, int CID){
-        List<CampDTO> list = session.selectList("com.mybatis.CampMapper.printDetailByCID", CID);
+    public CampDTO printDetailByCID(SqlSession session, int CID){
+        CampDTO list = session.selectOne("com.mybatis.CampMapper.printDetailByCID", CID);
         return list;
     }
 

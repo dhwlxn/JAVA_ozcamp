@@ -76,12 +76,13 @@ public class CampServiceImpl implements CampService {
     }//printNameList end
 
     @Override
-    public List<CampDTO> printDetailByCID(int CID) {
+    public CampDTO printDetailByCID(int CID) {
         SqlSession session = sqlSessionFactory.openSession();
-        List<CampDTO> list = null;
+        CampDTO list = null;
         try{
             CampDAO dao = new CampDAO();
             list = dao.printDetailByCID(session, CID);
+            
         }finally {
             session.close();
         }

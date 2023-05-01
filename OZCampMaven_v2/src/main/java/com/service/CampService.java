@@ -11,7 +11,7 @@ public interface CampService {
 
     List<CampDTO> findByRecommendation(CampDTO dto);
 
-    List<CampDTO> printNameList(ArrayList<Integer> CIDs);
+    List<CampDTO> printNameList(ArrayList<Integer> cid);
 
-    List<CampDTO> printDetailByCID(int CID);
+    CampDTO printDetailByCID(int CID);
 }

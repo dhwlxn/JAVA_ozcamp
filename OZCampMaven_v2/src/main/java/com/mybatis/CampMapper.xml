@@ -15,15 +15,15 @@
     <select id="findByRecommendation" parameterType="com.dto.CampDTO" resultType="com.dto.CampDTO">
 		select CID, name, address, latitude, longitude
 		from CAMP
-		where environment = list[0] and water_pool = #{optionSwim} and 
-		playground = #{optionPlay} and electricity = #{optionElec} ans wifi = #{optionWifi}
+		where environment = #{environment}and water_pool = #{water_pool} and 
+		playground = #{playground} and electricity = #{electricity} and wifi = #{wifi}
     </select>
 
 <!--CID로 목록 가져오기-->
     <select id="printNameList" parameterType="int" resultType="com.dto.CampDTO">
 	select name, address
 	from CAMP
-	where CID = {cid}
+	where CID = #{cid}
     </select>
 
 <!--CID로 해당 캠핑장의 모든 정보 가져오기-->
@@ -31,7 +31,9 @@
 	select name, address, common_site, caravan_site, glamping_site, auto_site, electricity, wifi, 
 	water_pool,playground, environment, features
 	from CAMP
-	where CID = {cid}
+	where CID = #{cid}
     </select>
+    
+
 
 </mapper>
