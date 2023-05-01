@@ -1,7 +1,12 @@
 package com.service;
 
 import com.dao.LocationDAO;
+
+import com.dao.OptionDAO;
+import com.dto.CampDTO;
 import com.dto.LocationDTO;
+import com.dto.OptionDTO;
+
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -47,4 +52,18 @@ public class LocationServiceImpl implements LocationService{
         }
         return location;
     }
+
+    
+	@Override
+	public List<CampDTO> findByOption(OptionDTO dto) {
+		SqlSession session = sqlSessionFactory.openSession();
+        List<CampDTO> list =  null;
+        try{
+        	OptionDAO dao = new OptionDAO();
+            list = dao.findByOption(session, dto);
+        }finally {
+            session.close();
+        }
+        return list;
+	}
 }

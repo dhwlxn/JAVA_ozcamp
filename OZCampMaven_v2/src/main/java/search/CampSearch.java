@@ -1,6 +1,8 @@
 package search;
 
 import java.util.ArrayList;
+
+
 import java.util.Collections;
 import java.util.Scanner;
 import java.util.List;
@@ -8,17 +10,17 @@ import com.dto.CampDTO;
 import com.service.CampService;
 import com.service.CampServiceImpl;
 
+
 import page.*;
 
 public class CampSearch {
 	
-   public static void search() {
-	   CampService service = new CampServiceImpl();
+   public static void search(List<CampDTO> resultList) {
+	  CampService service = new CampServiceImpl();
 	  
 	  // 사용자 입력값 받아 조회
       Scanner input = new Scanner(System.in);
       String searchName;
-      List<CampDTO> resultList;
       boolean find = false;
 
       Menu.spaceForNew();
@@ -58,8 +60,6 @@ public class CampSearch {
     	  }
       }
       searchDetail(resultList);
-      
-    	  
     	   
    }
    
@@ -87,6 +87,12 @@ public class CampSearch {
 			   // 상세 페이지로 이동
 			   searchDetail = resultList.get(searchNum-1).getCID();
 			   // cid 로 디테일 페이지 이동 로직
+			   
+			   
+			   
+			   
+			   
+			   
 			   //
 			   // test 용
 			   System.out.println("디테일 페이지");

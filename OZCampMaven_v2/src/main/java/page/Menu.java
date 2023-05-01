@@ -2,7 +2,11 @@ package page;
 import search.*;
 
 import javax.swing.*;
+
+import com.dto.CampDTO;
+
 import java.awt.event.*;
+import java.util.List;
 import java.util.Scanner;
 import java.awt.*;
 
@@ -53,7 +57,7 @@ public class Menu {
 	
 	
 	// 게스트 로그인/회원가입 메뉴
-	public static void guestMenu() {
+	public static void guestMenu(List<CampDTO> resultList) {
 		
 		// 사용자 입력받기
 		Scanner input = new Scanner(System.in);
@@ -69,6 +73,7 @@ public class Menu {
 		{
 			// 로그인 페이지
 			
+			
 		}
 		else if(menuInput.equals("1"))
 		{
@@ -78,7 +83,7 @@ public class Menu {
 	}
 	
 	// 사용자 메뉴
-	public static void userMenu() {
+	public static void userMenu(List<CampDTO> resultList) {
 		
 		menuTitle("# menu");
 		System.out.println("                                          # 1. 캠핑장 검색");
@@ -89,9 +94,6 @@ public class Menu {
 		Scanner input = new Scanner(System.in);
 		String menuInput;
 		do {
-			System.out.println("                                          # 1. 캠핑장 검색");
-			System.out.println("                                          # 2. 캠핑장 추천");
-			System.out.println("                                          # 3. 마이페이지");
 			System.out.print("                                     ▶          ");
 			menuInput = input.nextLine();		
 		}while(!menuInput.equals("1") && !menuInput.equals("2") && !menuInput.equals("3") );
@@ -102,12 +104,12 @@ public class Menu {
 			case 1:
 			{
 				// 캠핑장 검색 페이지
-				CampSearch.search();
+				CampSearch.search(resultList);
 			}
 			case 2:
 			{
 				// 캠핑장 추천 페이지
-				CampRecommend.tag();
+				CampRecommend.campChoice(resultList);
 			}
 			case 3:
 			{
