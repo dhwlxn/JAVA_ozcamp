@@ -62,7 +62,10 @@ public class CampRecommend{
 	    	  else
 	    	  {
 	    		  // 일치하는 캠핑장이 하나도 없을 때 예외처리
-	    		  System.out.println("                                  일치하는 캠핑장이 없습니다. 다시 입력해주세요:) ");
+	    		  System.out.println("                                  일치하는 캠핑장이 없습니다. 다시 메뉴를 선택해주세요:) ");
+	    		  Menu.userMenu(resultList);
+	    		  break;
+	    		  
 	    	  }
 	      }
 		
@@ -84,21 +87,37 @@ public class CampRecommend{
 		String Dong;
 		
 		Scanner input = new Scanner(System.in);
-		System.out.println("                                     출발지를 입력해주세요.");
-		
-		//예외처리 아직 안 함 //////////////////////////////////////
-		System.out.print("                                     ▶  구 (ex. 강남구) : ");
-		Gu = input.nextLine();
-		System.out.print("                                     ▶  동 (ex. 역삼동) : ");
-		Dong = input.nextLine();
-		
-		localList.setGu(Gu);
-		localList.setDong(Dong);
-
-		//구, 동 받아서 위경도 반환(덮어쓰기)
-		localList = service.findByDistrict(localList);
-		// 반경 - 위경도 계산 후 optionList에 넣음
-		district(localList, optionList);
+		while(true)
+		{
+			
+			System.out.println("                                     출발지를 입력해주세요.");
+			System.out.print("                                     ▶  구 (ex. 강남구) : ");
+			Gu = input.nextLine();
+			System.out.print("                                     ▶  동 (ex. 역삼동) : ");
+			Dong = input.nextLine();
+			
+			localList.setGu(Gu);
+			localList.setDong(Dong);
+	
+			
+			// 구, 동 예외처리
+			if(localList == null)
+			{
+				System.out.println();
+				System.out.println("                                     서비스를 제공하지 않는 지역입니다. :(");
+				System.out.println("                                      ※현재는 서울 지역만 가능합니다.");
+				System.out.println();
+				
+			}
+			else
+			{
+				//구, 동 받아서 위경도 반환(덮어쓰기)
+				localList = service.findByDistrict(localList);
+				// 반경 - 위경도 계산 후 optionList에 넣음
+				district(localList, optionList);
+				break;
+			}
+		}
 
 	}
 	
@@ -125,6 +144,7 @@ public class CampRecommend{
 		double longitude = localList.getLongitude();
 
 		Scanner input = new Scanner(System.in);
+		System.out.println();
 		System.out.println("                                     원하는 캠핑장의 거리를 선택해주세요.");
 		do {
 			System.out.println("                                    [   50km / 100km / 150km  ]");
@@ -164,6 +184,7 @@ public class CampRecommend{
 		char optionEnv = '0';
 		
 		Scanner input = new Scanner(System.in);
+		System.out.println();
 		System.out.println("                                     원하시는 환경을 골라주세요 :)");
 		do {
 			System.out.println("                              [   강 / 계곡 / 산 / 숲 / 바다 / 도심 / 호수  ]");
@@ -201,7 +222,7 @@ public class CampRecommend{
 	// tag(물놀이, 놀이터, 전기, wifi)
 	public static void tag(OptionDTO optionList) {
 		
-	
+		System.out.println();
 		System.out.println("                                     원하시는 캠핑장의 태그를 선택해주세요:)  ");
 		
 		CampRecommend myoption = new CampRecommend();
