@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserDTO {
-    int UID;
+    int CUID;
     String ID;
     String PW;
+
 }

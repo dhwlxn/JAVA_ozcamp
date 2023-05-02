@@ -7,6 +7,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class WishlistDTO {
-    int USER_UID;
+    int CAMPER_CUID;
     int CAMP_CID;
 }

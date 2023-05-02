@@ -6,7 +6,11 @@ import java.util.List;
 
 public interface CommentService {
 
-    List<CommentDTO> findall(CommentDTO dto);
+    int maxvalue();
+
+    List<CommentDTO> findAll(int CUID);
+
+    List<CommentDTO> findByCamp(int CID);
 
     int insert(CommentDTO dto);
 

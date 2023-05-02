@@ -21,9 +21,9 @@ public class CampMain {
 		// 메인화면 출력		
 		Menu.mainPrint();
 		Menu.menuTitle("start !");
-		CampRecommend.campChoice(resultList);
-		Menu.guestMenu(resultList);
-		
+		Menu.guestMenu();
+
+		Menu.userMenu(resultList);
 		// 아직 유저가 없어 검색 테스용
 		CampSearch.search(resultList);
 //		// 추천 테스트용

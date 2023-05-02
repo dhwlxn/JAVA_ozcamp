@@ -7,11 +7,20 @@ import java.util.List;
 
 public class CommentDAO {
 
-    public List<CommentDTO> findAll(SqlSession session, CommentDTO dto){
-        List<CommentDTO> list = session.selectList("com.mybatis.CommentMapper.findAll",dto);
+    public int maxvalue(SqlSession session) {
+        int n = session.selectOne("com.mybatis.CommentMapper.maxvalue");
+        return n;
+    }
+
+    public List<CommentDTO> findAll(SqlSession session, int CUID){
+        List<CommentDTO> list = session.selectList("com.mybatis.CommentMapper.findAll",CUID);
         return list;
     }
 
+    public List<CommentDTO> findByCamp(SqlSession session, int CID){
+        List<CommentDTO> list = session.selectList("com.mybatis.CommentMapper.findByCamp",CID);
+        return list;
+    }
 
     public int insert(SqlSession session, CommentDTO dto) {
         int n = session.insert("com.mybatis.CommentMapper.insert", dto);

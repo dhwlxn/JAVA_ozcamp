@@ -36,6 +36,21 @@ public class UserServiceImpl implements UserService{
     }
  */
     @Override
+    public int maxvalue() {
+        SqlSession session = sqlSessionFactory.openSession();
+        int n = 0;
+        try{
+            UserDAO dao = new UserDAO();
+            n = dao.maxvalue(session);
+        }finally {
+            session.close();
+        }
+        return n;
+    }
+
+
+
+    @Override
     public int register(UserDTO dto) {
         SqlSession session = sqlSessionFactory.openSession();
         int n = 0;
@@ -50,25 +65,53 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public int logIn(UserDTO dto) {
+    public int isIdDuplicated(String ID) {
         SqlSession session = sqlSessionFactory.openSession();
-        int UID = 0;
-        try{
+        int n =0;
+        try {
             UserDAO dao = new UserDAO();
-            UID = dao.logIn(session, dto);
+            n = dao.isIdDuplicated(session, ID);
         }finally {
             session.close();
         }
-        return UID;
+
+        return n;
     }
 
     @Override
-    public int delete(int UID) {
+    public String logIn(UserDTO dto) {
+        SqlSession session = sqlSessionFactory.openSession();
+        String PW = null;
+        try{
+            UserDAO dao = new UserDAO();
+            PW = dao.logIn(session, dto);
+        }finally {
+            session.close();
+        }
+        return PW;
+    }
+
+    @Override
+    public int getCUID(UserDTO dto) {
+        SqlSession session = sqlSessionFactory.openSession();
+        int CUID;
+        try{
+            UserDAO dao = new UserDAO();
+            CUID = dao.getCUID(session, dto);
+        }finally {
+            session.close();
+        }
+        return CUID;
+
+    }
+
+    @Override
+    public int delete(int CUID) {
         SqlSession session = sqlSessionFactory.openSession();
         int n = 0;
         try{
             UserDAO dao = new UserDAO();
-            n = dao.delete(session, UID);
+            n = dao.delete(session, CUID);
             session.commit();
         }finally {
             session.close();

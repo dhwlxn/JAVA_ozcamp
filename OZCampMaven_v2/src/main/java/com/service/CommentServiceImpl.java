@@ -37,13 +37,41 @@ public class CommentServiceImpl implements CommentService{
             session.close();
         }
      */
+
+
     @Override
-    public List<CommentDTO> findall(CommentDTO dto) {
+    public int maxvalue() {
+        SqlSession session = sqlSessionFactory.openSession();
+        int n = 0;
+        try{
+            CommentDAO dao = new CommentDAO();
+            n = dao.maxvalue(session);
+        }finally {
+            session.close();
+        }
+        return n;
+    }
+
+    @Override
+    public List<CommentDTO> findAll(int CUID) {
         SqlSession session = sqlSessionFactory.openSession();
         List<CommentDTO> list = null;
         try{
             CommentDAO dao = new CommentDAO();
-            list = dao.findAll(session, dto);
+            list = dao.findAll(session, CUID);
+        }finally {
+            session.close();
+        }
+        return list;
+    }
+
+    @Override
+    public List<CommentDTO> findByCamp(int CID) {
+        SqlSession session = sqlSessionFactory.openSession();
+        List<CommentDTO> list = null;
+        try{
+            CommentDAO dao = new CommentDAO();
+            list = dao.findByCamp(session, CID);
         }finally {
             session.close();
         }

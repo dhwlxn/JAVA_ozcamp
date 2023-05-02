@@ -17,10 +17,13 @@ public class WishlistDAO {
         return n;
 
     }
-
-    public List<WishlistDTO> findAll(SqlSession session, int UID){
-        List<WishlistDTO> list = session.selectList("com.mybatis.WishlistMapper.findAll", UID);
-        return list;
+    public int deleteAll(SqlSession session, int CUID) {
+        int n = session.delete("com.mybatis.WishlistMapper.deleteAll", CUID);
+        return n;
     }
 
+    public List<WishlistDTO> findAll(SqlSession session, int CUID){
+        List<WishlistDTO> list = session.selectList("com.mybatis.WishlistMapper.findAll", CUID);
+        return list;
+    }
 }

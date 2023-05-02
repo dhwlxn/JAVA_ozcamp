@@ -9,5 +9,7 @@ public interface WishlistService {
 
     int delete (WishlistDTO dto);
 
-    List<WishlistDTO> findAll(int UID);
+    List<WishlistDTO> findAll(int CUID);
+
+    int deleteAll(int CUID);
 }

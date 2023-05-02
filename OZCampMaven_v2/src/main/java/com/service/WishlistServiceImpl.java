@@ -54,10 +54,10 @@ public class WishlistServiceImpl implements WishlistService{
     @Override
     public int delete(WishlistDTO dto) {
         SqlSession session = sqlSessionFactory.openSession();
-        int n = 0;
+        int n ;
         try{
             WishlistDAO dao = new WishlistDAO();
-            dao.delete(session,dto);
+            n=dao.delete(session, dto);
             session.commit();
         }finally {
             session.close();
@@ -66,12 +66,27 @@ public class WishlistServiceImpl implements WishlistService{
     }
 
     @Override
-    public List<WishlistDTO> findAll(int UID) {
+    public int deleteAll(int CUID) {
+        SqlSession session = sqlSessionFactory.openSession();
+        int n ;
+        try{
+            WishlistDAO dao = new WishlistDAO();
+            n=dao.deleteAll(session, CUID);
+            session.commit();
+        }finally {
+            session.close();
+        }
+        return n;
+    }
+
+
+    @Override
+    public List<WishlistDTO> findAll(int CUID) {
         SqlSession session = sqlSessionFactory.openSession();
         List<WishlistDTO> list = null;
         try{
             WishlistDAO dao = new WishlistDAO();
-            list = dao.findAll(session, UID);
+            list = dao.findAll(session, CUID);
         }finally {
             session.close();
         }
