@@ -1,5 +1,6 @@
 package page;
 import search.*;
+
 import javax.swing.*;
 
 import com.dto.CampDTO;
@@ -63,7 +64,7 @@ public class Menu {
 	
 	
 	// 게스트 로그인/회원가입 메뉴
-	public static void guestMenu(List<CampDTO> resultList) {
+	public static void guestMenu() {
 		
 		// 사용자 입력받기
 		Scanner input = new Scanner(System.in);
@@ -87,7 +88,6 @@ public class Menu {
 			// 회원가입 페이지
 			user.register();
 		}
-		userMenu(resultList);
 		
 	}
 	
@@ -163,6 +163,7 @@ public class Menu {
 			case 2:
 			{
 				myComment();
+				break;
 			}
 			case 3:
 			{
@@ -213,15 +214,15 @@ public class Menu {
 			{
 				comment.findAll(CUID);
 				comment.update(CUID);
-
+				
 
 				break;
 			}	// 수정하기  번호 받아 수정
 
 			case 3:
 			{
-
-				user.user_delete(CUID);
+				comment.findAll(CUID);
+				comment.delete(CUID);
 
 				break;
 			}   // 삭제하기  번호 받아 삭제
@@ -229,7 +230,7 @@ public class Menu {
 			case 0:
 			{
 
-				user.user_delete(CUID);
+				myPage();
 				// 마이페이지로 돌아가기
 				break;
 			}

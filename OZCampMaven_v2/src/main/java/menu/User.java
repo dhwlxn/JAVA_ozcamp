@@ -102,7 +102,6 @@ public class User {
 		
 		System.out.println("메뉴 진입");
 		
-		
 		return getCUID();
 	} // login end
 	

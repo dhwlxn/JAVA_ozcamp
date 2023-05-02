@@ -35,13 +35,14 @@ public class Wishlist extends Board {
 
 
 	@Override
-	public void delete(int CUID, int CID) {
+	public void delete(int CUID) {
 		
 		Scanner scan = new Scanner(System.in);
 		System.out.println("위시리스트에서 삭제하시겠습니까? (y/n)");
 		String answer = scan.next();
 		if(answer.equalsIgnoreCase("Y")) {
 			WishlistService service = new WishlistServiceImpl() ;
+			int CID = 0;  //  수정필요
 			WishlistDTO dto = new WishlistDTO(CUID, CID);
 			int n = service.delete(dto);	
 //			System.out.println(n+"개가 위시리스트에서 삭제되었습니다.");
