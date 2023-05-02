@@ -7,7 +7,7 @@
     <!-- RID max값 리턴 -->
     <select id="maxvalue" resultType="int">
         select max(RID)
-        from comment
+        from review
     </select>
 
 
@@ -22,7 +22,7 @@
     <select id="findByCamp" parameterType="com.dto.CommentDTO" resultType="com.dto.CommentDTO">
         select cr.ID, r.reply
         from camp c, review r, camper cr
-        where cr.cuid = r.camper_cuid and c.cid = #{CID}
+        where cr.cuid = r.camper_cuid and c.cid = #{CID} and c.cid = r.camp_cid
     </select>
 
     <!--댓글 입력-->

@@ -12,6 +12,7 @@ public class CommentDTO {
     int RID;
     String reply;
     String name;
+    String ID;
 
     public CommentDTO(int cAMPER_CUID, int cAMP_CID, int RID) {
         super();
@@ -20,6 +21,7 @@ public class CommentDTO {
         this.RID = RID;
         this.reply = null;
         this.name = null;
+        this.ID = null;
     }
 
     public CommentDTO(int cAMPER_CUID, int cAMP_CID, int rID, String reply) {
@@ -29,6 +31,9 @@ public class CommentDTO {
         RID = rID;
         this.reply = reply;
         this.name = null;
+        this.ID = null;
 
     }
+
+
 }

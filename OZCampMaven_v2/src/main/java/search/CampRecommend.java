@@ -130,6 +130,7 @@ public class CampRecommend {
         double longitude = localList.getLongitude();
 
         Scanner input = new Scanner(System.in);
+        System.out.println();
         System.out.println("                                     원하는 캠핑장의 거리를 선택해주세요.");
         do {
             System.out.println("                                    [   50km / 100km / 150km  ]");
@@ -169,6 +170,7 @@ public class CampRecommend {
         char optionEnv = '0';
 
         Scanner input = new Scanner(System.in);
+        System.out.println();
         System.out.println("                                     원하시는 환경을 골라주세요 :)");
         do {
             System.out.println("                              [   강 / 계곡 / 산 / 숲 / 바다 / 도심 / 호수  ]");

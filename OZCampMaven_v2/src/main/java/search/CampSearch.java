@@ -12,6 +12,7 @@ import com.service.CampService;
 import com.service.CampServiceImpl;
 
 
+import menu.Camp;
 import page.*;
 
 public class CampSearch {
@@ -63,18 +64,15 @@ public class CampSearch {
         }
         searchDetail(resultList);
 
-
     }
 
 
     // 조회 번호로 상세페이지 이동
     public static void searchDetail(List<CampDTO> resultList) {
 
-
         System.out.println("                                  =================================");
         System.out.println("                                     원하시는 캠핑장 번호을 입력하세요. :)");
         System.out.println("                                  =================================\n");
-        System.out.println("                                    → 메인화면은 '0'을 입력해주세요!  \n");
 
 
         Scanner input = new Scanner(System.in);
@@ -95,12 +93,10 @@ public class CampSearch {
                     // 상세 페이지로 이동
                     searchDetail = resultList.get(searchNum - 1).getCID();
                     // cid 로 디테일 페이지 이동 로직
+                    Camp camp = new Camp();
 
+                    camp.printDetailByCID(searchDetail);
 
-                    //
-                    // test 용
-                    System.out.println("디테일 페이지");
-                    //
                 }
                 break;
             } else {

@@ -1,6 +1,7 @@
 package menu;
 
 import com.dto.CommentDTO;
+import com.dto.UserDTO;
 import com.service.CommentService;
 import com.service.CommentServiceImpl;
 
@@ -14,10 +15,11 @@ public class Comment extends Board {
 	@Override
 	public void insert(int CUID, int CID) {
 
-		System.out.println("                                     댓글 내용을 입력해주세요 :)");
+		System.out.print("                                     댓글 내용을 입력해주세요 :)\n                                     ▶  ");
 
 		// 댓글 글자 수 제한?
-		String reply = scan.next();
+
+		String reply = scan.nextLine();
 		CommentService service = new CommentServiceImpl();
 		int RID = service.maxvalue()+1;
 
@@ -33,25 +35,36 @@ public class Comment extends Board {
 		CommentService service = new CommentServiceImpl();
 		List<CommentDTO> list = service.findAll(CUID);
 		//출력문 UI 수정 필요
-		System.out.println("                               ╭╼|══════════════════════════════|╾╮                  ");
+		System.out.println();
+		System.out.println("                      댓글");
+		System.out.println("                  ╭╼|════════════════════════════════════════════════════════|╾╮                  ");
 		int n = 0;
 		for (CommentDTO commentDTO : list) {
 			n += 1;
-			System.out.println("                                     "+n+") "+commentDTO.getName());
-			System.out.println("                                         ┗ "+commentDTO.getReply());
+			System.out.println("                      "+n+") "+commentDTO.getName());
+			System.out.println("                          ┗ "+commentDTO.getReply());
 		}
-		System.out.println("                               ╰╼|══════════════════════════════|╾╯                  ");
+		System.out.println("                  ╰╼|════════════════════════════════════════════════════════|╾╯                  ");
 
 		return list;
 	} // findAll end
 
-	public void findByCamp(int CID) {
+	public void findByCamp(int CID)    {
 		CommentService service = new CommentServiceImpl();
 		List<CommentDTO> list = service.findByCamp(CID);
 		//출력문 UI 수정 필요
+		//출력문 UI 수정 필요
+		System.out.println();
+		System.out.println("                      댓글");
+		System.out.println("                  ╭╼|════════════════════════════════════════════════════════|╾╮                  ");
+		int n = 0;
 		for (CommentDTO commentDTO : list) {
-			System.out.println(commentDTO);
+			n += 1;
+			System.out.println("                      "+n+") "+commentDTO.getID());
+			System.out.println("                          ┗ "+commentDTO.getReply());
 		}
+		System.out.println("                  ╰╼|════════════════════════════════════════════════════════|╾╯                  ");
+
 	} // findByCamp end
 
 	@Override
@@ -101,9 +114,9 @@ public class Comment extends Board {
 				System.out.println("                                     해당 번호의 댓글이 존재하지 않습니다 :(\n");
 			}
 		}while(answer>list.size());
-		System.out.println("                                     댓글 내용을 입력해주세요 :)");
-		System.out.print("                                     ▶          ");
-		String reply = scan.next();
+		System.out.print("                                     댓글 내용을 입력해주세요 :)\n                                     ▶  ");
+		scan.nextLine();
+		String reply = scan.nextLine();
 
 		CommentDTO dto = new CommentDTO(CUID, CID, RID, reply);
 		int n = service.update(dto);

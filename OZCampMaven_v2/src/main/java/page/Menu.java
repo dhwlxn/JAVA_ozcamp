@@ -18,10 +18,10 @@ import java.util.Scanner;
 import java.awt.*;
 
 public class Menu {
-	
+
 	// 메인화면 로고
 	public static void mainPrint() {
-		
+
 		System.out.println("                                                                               \r\n"
 				+ "                                                                                        \r\n"
 				+ "       ☾ ⋆*･ﾟ:⋆*･ﾟ:⠀ *⋆.*:･ﾟ .: ⋆*･ﾟ: .⋆☾ ⋆*･ﾟ:⋆*･ﾟ:⠀ *⋆.*:･ﾟ .: ⋆*･ﾟ: .⋆☾ ⋆*･ﾟ:⋆*･ﾟ:⠀ *⋆.*:･ﾟ .: ⋆*･ﾟ: .⋆  \r\n"
@@ -32,8 +32,8 @@ public class Menu {
 				+ "                    ██║   ██║ ███╔╝      ██║     ██╔══██║██║╚██╔╝██║██╔═══╝     ╚═╝     \r\n"
 				+ "                    ╚██████╔╝███████╗    ╚██████╗██║  ██║██║ ╚═╝ ██║██║         ██╗     \r\n"
 				+ "                     ╚═════╝ ╚══════╝     ╚═════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝         ╚═╝     \r\n"
-				+ "      ▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀ \r\n"						
-				+ "     \r\n"			
+				+ "      ▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀ \r\n"
+				+ "     \r\n"
 				+ "                                                                                             \r\n"
 				+ "                                              @@@@@@@@@%////@@                               \r\n"
 				+ "                                         @@*******@@////////////@                            \r\n"
@@ -49,9 +49,9 @@ public class Menu {
 				+ "                   # @@@, ,,@*********@&@&&&&&&&&&%&@***********@*/@@@@@/*,,, ,    #         \r\n"
 				+ "                      @@,@/  ,,,,,**/////////////(/(((///////////@@@@@,,,,                   \r\n"
 				+ "                                                                     #@@    					    ");
-		}
-	
-	
+	}
+
+
 	// 메뉴 타이틀 
 	public static void menuTitle(String menuName) {
 		System.out.println("                                                                                ");
@@ -60,12 +60,12 @@ public class Menu {
 		System.out.println("                                    ╰╼|════════════════════|╾╯                  ");
 		System.out.println("                                                                                ");
 	}
-	
-	
-	
+
+
+
 	// 게스트 로그인/회원가입 메뉴
 	public static void guestMenu(List<CampDTO> resultList) {
-		
+
 		// 사용자 입력받기
 		Scanner input = new Scanner(System.in);
 		String menuInput;
@@ -73,28 +73,30 @@ public class Menu {
 		do {
 			System.out.println("                                     sign in(0) | sign up(1)");
 			System.out.print("                                     ▶          ");
-			menuInput = input.nextLine();		
+			menuInput = input.nextLine();
 		}while(!menuInput.equals("0") && !menuInput.equals("1") );
-		
+
 		// 로그인/회원가입 분기처리
 		if (menuInput.equals("0"))
 		{
 			// 로그인 페이지
 			user.login();
+			userMenu(resultList);
 
 		}
 		else if(menuInput.equals("1"))
 		{
 			// 회원가입 페이지
 			user.register();
+			user.login();
+			userMenu(resultList);
 		}
-		userMenu(resultList);
-		
+
 	}
-	
+
 	// 사용자 메뉴
 	public static void userMenu(List<CampDTO> resultList) {
-		
+
 		menuTitle("# menu");
 		// 사용자 입력받기
 		Scanner input = new Scanner(System.in);
@@ -103,10 +105,11 @@ public class Menu {
 			System.out.println("                                          # 1. 캠핑장 검색");
 			System.out.println("                                          # 2. 캠핑장 추천");
 			System.out.println("                                          # 3. 마이페이지");
+			System.out.println("                                          # 0. 프로그램 종료");
 			System.out.print("                                     ▶          ");
-			menuInput = input.nextLine();		
-		}while(!menuInput.equals("1") && !menuInput.equals("2") && !menuInput.equals("3") );
-				
+			menuInput = input.nextLine();
+		}while(!menuInput.equals("1") && !menuInput.equals("2") && !menuInput.equals("3") &&  !menuInput.equals("0") );
+
 		// 메뉴선택 분기처리
 		switch (Integer.parseInt(menuInput))
 		{
@@ -128,6 +131,15 @@ public class Menu {
 				myPage();
 				break;
 			}
+			case 0:
+			{
+				// 시스템 종료
+				System.out.println();
+				System.out.println("                                         프로그램이 종료되었습니다");
+				System.out.println("                                         다음에 또 이용해 주세요:)");
+				System.exit(0);
+				break;
+			}
 		}
 	}
 
@@ -144,21 +156,20 @@ public class Menu {
 			System.out.println("                                          # 1. 위시리스트");
 			System.out.println("                                          # 2. 내가 쓴 글");
 			System.out.println("                                          # 3. 회원 탈퇴");
+			System.out.println("                                          # 0. menu로 돌아가기");
 			System.out.print("                                     ▶          ");
 
 			menuInput = input.nextInt();
-		}while(menuInput !=1 && menuInput != 2 && menuInput != 3);
+		}while(menuInput !=1 && menuInput != 2 && menuInput != 3 && menuInput != 0);
 
 		// 마이페이지 메뉴 선택 분기처리
 		switch (menuInput)
 		{
 			case 1:
 			{
-				Wishlist wishlist = new Wishlist();
-				wishlist.findAll(CUID);
 
 				// 위시리스트 출력
-
+				myWishlist();
 				break;
 			}
 			case 2:
@@ -173,8 +184,73 @@ public class Menu {
 				// 회원탈퇴
 				break;
 			}
+			case 0:
+			{
+				Menu.userMenu(null);
+				// 마이페이지로 돌아가기
+				break;
+			}
 		}
 	} // myPage end
+
+	public static void myWishlist() {
+
+		// 사용자 입력받기
+		Scanner input = new Scanner(System.in);
+		int menuInput;
+		User user = new User();
+		int CUID = User.getCUID();
+		menuTitle("# wishlist");
+		Wishlist wishlist = new Wishlist();
+
+		do {
+			System.out.println("                                          # 1. 조회하기");
+			System.out.println("                                          # 2. 삭제하기");
+			System.out.println("                                          # 0. My Page로 돌아가기");
+			System.out.print("                                     ▶          ");
+
+			menuInput = input.nextInt();
+		}while(menuInput !=1 && menuInput != 2&& menuInput != 0);
+
+		// 마이페이지 메뉴 선택 분기처리
+		switch (menuInput)
+		{
+			case 1:
+			{
+				wishlist.findAll(CUID);
+				System.out.println("                                          # 돌아가기 (0)");
+				System.out.print("                                     ▶          ");
+				int answer = input.nextInt();
+				if(answer == 0) {
+					myWishlist();
+				}
+				break;
+			}// 조회하기   번호받아 해당 캠핑장 디테일페이지로 이동
+
+
+			case 2:
+			{
+				wishlist.findAll(CUID);
+				wishlist.delete(CUID);
+				System.out.println("                                          # 돌아가기 (0)");
+				System.out.print("                                     ▶          ");
+				int answer = input.nextInt();
+				if(answer == 0) {
+					myWishlist();
+				}
+				break;
+			}   // 삭제하기  번호 받아 삭제
+
+			case 0:
+			{
+
+				myPage();
+				// 마이페이지로 돌아가기
+				break;
+			}
+		}
+	} // myWishlist end
+
 
 	public static void myComment() {
 
@@ -183,7 +259,7 @@ public class Menu {
 		int menuInput;
 		User user = new User();
 		int CUID = User.getCUID();
-		menuTitle("# my comment");
+		menuTitle("# comment");
 		Comment comment = new Comment();
 
 		do {
@@ -202,7 +278,8 @@ public class Menu {
 			case 1:
 			{
 				comment.findAll(CUID);
-				System.out.println("                                    # 돌아가기 (0)");
+				System.out.println("                                          # 돌아가기 (0)");
+				System.out.print("                                     ▶          ");
 				int answer = input.nextInt();
 				if(answer == 0) {
 					myComment();
@@ -215,6 +292,12 @@ public class Menu {
 			{
 				comment.findAll(CUID);
 				comment.update(CUID);
+				System.out.println("                                          # 돌아가기 (0)");
+				System.out.print("                                     ▶          ");
+				int answer = input.nextInt();
+				if(answer == 0) {
+					myComment();
+				}
 
 
 				break;
@@ -222,9 +305,14 @@ public class Menu {
 
 			case 3:
 			{
-
 				comment.findAll(CUID);
 				comment.delete(CUID);
+				System.out.println("                                          # 돌아가기 (0)");
+				System.out.print("                                     ▶          ");
+				int answer = input.nextInt();
+				if(answer == 0) {
+					myComment();
+				}
 
 				break;
 			}   // 삭제하기  번호 받아 삭제
@@ -252,7 +340,7 @@ public class Menu {
 
 	// 새로운 메뉴를 위한 공백
 	public static void spaceForNew() {
-	
+
 		System.out.println();
 		System.out.println();
 		System.out.println();

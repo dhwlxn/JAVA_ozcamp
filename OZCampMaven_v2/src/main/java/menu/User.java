@@ -115,12 +115,20 @@ public class User {
 
     public void user_delete(int CUID) {
 
-        Menu.menuTitle("# user_delete");
-        System.out.println("                                      정말로 탈퇴하시겠습니까? (y/n)");
-        System.out.print("                                     ▶          ");
-        String answer = scan.next();
+        Menu.menuTitle("# 탈퇴");
+        String answer;
+        do {
+            System.out.println("                                      정말로 탈퇴하시겠습니까? (y/n)");
+            System.out.print("                                     ▶          ");
+            answer = scan.next();
 
-        if (answer.equalsIgnoreCase("Y")) {
+            if (!answer.equalsIgnoreCase("y") && !answer.equalsIgnoreCase("n")) {
+                System.out.println("                                 잘못된 입력입니다. Y 또는 N을 입력해주세요.");
+                System.out.println();
+            }
+        }while(!answer.equalsIgnoreCase("y") && !answer.equalsIgnoreCase("n"));
+
+        if(answer.equalsIgnoreCase("Y")) {
 
             Wishlist wl = new Wishlist();
             wl.deleteAll(CUID);
@@ -128,11 +136,14 @@ public class User {
             UserService service = new UserServiceImpl();
             int n = service.delete(CUID);
         }
+        else {
+            Menu.myPage();
+        }
 
         System.out.println("                                         탈퇴가 완료되었습니다");
         System.out.println("                                      그동안 이용해주셔서 감사합니다.");
+        System.exit(0);
     }
-
 
     public static int getCUID() {
         return CUID;

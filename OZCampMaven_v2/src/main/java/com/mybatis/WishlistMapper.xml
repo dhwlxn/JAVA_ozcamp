@@ -25,7 +25,8 @@
     <!--위시리스트 조회 cuid 입력, cuid에 맞는 cid 모두 조회하여 리스트 반환-->
     <select id="findAll" parameterType="int" resultType="com.dto.WishlistDTO">
         select *
-        from wishlist
-        where CAMPER_CUID = #{CAMPER_CUID}
+        from wishlist w, camp c
+        where w.CAMPER_CUID = #{CAMPER_CUID} and w.camp_cid = c.cid
     </select>
 </mapper>
+
