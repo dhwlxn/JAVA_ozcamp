@@ -9,9 +9,6 @@ public interface CampService {
 
     List<CampDTO> findByName(String name);
 
-    List<CampDTO> findByRecommendation(CampDTO dto);
-
-    List<CampDTO> printNameList(ArrayList<Integer> cid);
 
     CampDTO printDetailByCID(int CID);
 }

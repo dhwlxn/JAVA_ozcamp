@@ -11,7 +11,7 @@ public class Wishlist extends Board {
 
 	@Override
 	public List findAll(int CUID) {
-		
+
 		WishlistService service = new WishlistServiceImpl() ;
 		List<WishlistDTO> list = service.findAll(CUID);
 		//출력문 UI 수정 필요
@@ -22,21 +22,21 @@ public class Wishlist extends Board {
 		return list;
 	} // findAll end
 
-	
+
 	@Override
 	public void insert(int CUID, int CID) {
 
 		WishlistService service = new WishlistServiceImpl() ;
 		WishlistDTO dto = new WishlistDTO(CUID, CID);
-		int n = service.insert(dto);	
-		System.out.println("내 위시리스트에 담겼습니다. :)");	
-		
+		int n = service.insert(dto);
+		System.out.println("내 위시리스트에 담겼습니다. :)");
+
 	} // insert end
 
 
 	@Override
 	public void delete(int CUID) {
-		
+
 		Scanner scan = new Scanner(System.in);
 		System.out.println("위시리스트에서 삭제하시겠습니까? (y/n)");
 		String answer = scan.next();
@@ -44,23 +44,22 @@ public class Wishlist extends Board {
 			WishlistService service = new WishlistServiceImpl() ;
 			int CID = 0;  //  수정필요
 			WishlistDTO dto = new WishlistDTO(CUID, CID);
-			int n = service.delete(dto);	
+			int n = service.delete(dto);
 //			System.out.println(n+"개가 위시리스트에서 삭제되었습니다.");
 		}
-		
+
 	} // delete end
 
-	
-	
+
+
 	public void deleteAll(int CUID) {
 
 		WishlistService service = new WishlistServiceImpl() ;
 		int n = service.deleteAll(CUID);
 
-		
-		} // deleteAll end
-	
-	
-	
+
+	} // deleteAll end
+
+
 
 }

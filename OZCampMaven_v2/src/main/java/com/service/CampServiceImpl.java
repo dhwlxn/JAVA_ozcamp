@@ -50,32 +50,6 @@ public class CampServiceImpl implements CampService {
     } //findByName end
 
     @Override
-    public List<CampDTO> findByRecommendation(CampDTO dto) {
-        SqlSession session = sqlSessionFactory.openSession();
-        List<CampDTO> list = null;
-        try{
-            CampDAO dao = new CampDAO();
-            list = dao.findByRecommendation(session, dto);
-        }finally {
-            session.close();
-        }
-        return list;
-    } //findByRecommendation end
-
-    @Override
-    public List<CampDTO> printNameList(ArrayList<Integer> CIDs) {
-        SqlSession session = sqlSessionFactory.openSession();
-        List<CampDTO> list = null;
-        try{
-            CampDAO dao = new CampDAO();
-            list = dao.printNameList(session,CIDs);
-        }finally {
-            session.close();
-        }
-        return list;
-    }//printNameList end
-
-    @Override
     public CampDTO printDetailByCID(int CID) {
         SqlSession session = sqlSessionFactory.openSession();
         CampDTO list = null;

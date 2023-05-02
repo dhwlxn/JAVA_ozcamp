@@ -11,20 +11,6 @@
         where name like '%'||#{name}||'%'
     </select>
 
-<!--태그 이용하여 CID, 캠핑장이름, 위치, 위경도 가져오기-->
-    <select id="findByRecommendation" parameterType="com.dto.CampDTO" resultType="com.dto.CampDTO">
-		select CID, name, address, latitude, longitude
-		from CAMP
-		where environment = #{environment}and water_pool = #{water_pool} and 
-		playground = #{playground} and electricity = #{electricity} and wifi = #{wifi}
-    </select>
-
-<!--CID로 목록 가져오기-->
-    <select id="printNameList" parameterType="int" resultType="com.dto.CampDTO">
-	select name, address
-	from CAMP
-	where CID = #{cid}
-    </select>
 
 <!--CID로 해당 캠핑장의 모든 정보 가져오기-->
     <select id="printDetailByCID" parameterType="int" resultType="com.dto.CampDTO">

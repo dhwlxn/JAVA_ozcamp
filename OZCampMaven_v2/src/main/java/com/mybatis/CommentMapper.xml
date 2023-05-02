@@ -13,7 +13,7 @@
 
     <!--댓글 조회 byALL (유저가 쓴 글)-->
     <select id="findAll" parameterType="com.dto.CommentDTO" resultType="com.dto.CommentDTO">
-        select * 
+        select *
         from camp c, review r,camper cr
         where c.cid = r.camp_cid and cr.cuid = #{CUID} and r.camper_cuid = cr.cuid
     </select>
@@ -36,7 +36,7 @@
     <update id="update" parameterType="com.dto.CommentDTO">
         update review
         set reply = #{reply}
-        where rid = #{RID}  
+        where rid = #{RID}
     </update>
 
 

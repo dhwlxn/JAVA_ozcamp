@@ -88,6 +88,7 @@ public class Menu {
 			// 회원가입 페이지
 			user.register();
 		}
+		userMenu(resultList);
 		
 	}
 	
@@ -214,13 +215,14 @@ public class Menu {
 			{
 				comment.findAll(CUID);
 				comment.update(CUID);
-				
+
 
 				break;
 			}	// 수정하기  번호 받아 수정
 
 			case 3:
 			{
+
 				comment.findAll(CUID);
 				comment.delete(CUID);
 
