@@ -1,6 +1,5 @@
 package page;
 import search.*;
-
 import javax.swing.*;
 
 import com.dto.CampDTO;
@@ -64,7 +63,7 @@ public class Menu {
 	
 	
 	// 게스트 로그인/회원가입 메뉴
-	public static void guestMenu() {
+	public static void guestMenu(List<CampDTO> resultList) {
 		
 		// 사용자 입력받기
 		Scanner input = new Scanner(System.in);
@@ -88,6 +87,7 @@ public class Menu {
 			// 회원가입 페이지
 			user.register();
 		}
+		userMenu(resultList);
 		
 	}
 	

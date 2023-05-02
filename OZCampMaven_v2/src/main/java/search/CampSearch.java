@@ -30,6 +30,11 @@ public class CampSearch {
       {
     	  System.out.print("                                     ▶     ");
     	  searchName = input.nextLine();
+    	  if (searchName.equals("0"))
+    	  {
+    		  Menu.userMenu(resultList);
+    		  break;
+    	  }
     	  resultList = service.findByName(searchName);
     	  if (resultList.size() > 0)
     	  {
@@ -51,12 +56,15 @@ public class CampSearch {
 	    		  +"                                       ▶ " + campground.getAddress() +"\n");
 	    		  i++;
 	    	  }
+	    	  System.out.println("                                     0) Main 으로 돌아가기\n");
 	    	  break;
     	  }
     	  else
     	  {
     		  // 일치하는 캠핑장이 하나도 없을 때 예외처리
     		  System.out.println("                                  일치하는 캠핑장이 없습니다. 다시 입력해주세요:) ");
+    		  System.out.println("                                    → 메인화면은 '0'을 입력해주세요!  \n");
+    		  
     	  }
       }
       searchDetail(resultList);
@@ -71,6 +79,8 @@ public class CampSearch {
 	   System.out.println("                                  =================================");
 	   System.out.println("                                     원하시는 캠핑장 번호을 입력하세요. :)");
 	   System.out.println("                                  =================================\n");
+	   System.out.println("                                    → 메인화면은 '0'을 입력해주세요!  \n");
+	   
 	   
 	   Scanner input = new Scanner(System.in);
 	   String searchNo;
@@ -82,21 +92,30 @@ public class CampSearch {
 		   System.out.print("                                     ▶     ");
 		   searchNo = input.nextLine();
 		   searchNum = Integer.parseInt(searchNo);
-		   if (searchNum > 0 && searchNum <= resultList.size())
+		   if (searchNum >= 0 && searchNum <= resultList.size())
 		   {
-			   // 상세 페이지로 이동
-			   searchDetail = resultList.get(searchNum-1).getCID();
-			   // cid 로 디테일 페이지 이동 로직
-			   
-			   
-			   
-			   
-			   
-			   
-			   //
-			   // test 용
-			   System.out.println("디테일 페이지");
-			   //
+			   Menu.spaceForNew();
+			   // 메인 페이지로 이동
+			   if(searchNum == 0)
+			   {
+				   Menu.userMenu(resultList);
+			   }
+			   else
+			   {				  
+				   // 상세 페이지로 이동
+				   searchDetail = resultList.get(searchNum-1).getCID();
+				   // cid 로 디테일 페이지 이동 로직
+				   
+				   
+				   
+				   
+				   
+				   
+				   //
+				   // test 용
+				   System.out.println("디테일 페이지");
+				   //
+			   }
 			   break;
 		   }        	  
 		   else
