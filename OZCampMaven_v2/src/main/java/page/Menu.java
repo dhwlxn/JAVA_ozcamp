@@ -64,7 +64,7 @@ public class Menu {
 	
 	
 	// 게스트 로그인/회원가입 메뉴
-	public static void guestMenu() {
+	public static void guestMenu(List<CampDTO> resultList) {
 		
 		// 사용자 입력받기
 		Scanner input = new Scanner(System.in);
