@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.LocationMapper">
+
+<!--구 동 입력받아서 위 경도 반환-->
+    <select id="findByDistrict" parameterType="com.dto.LocationDTO" resultType="com.dto.LocationDTO">
+	select latitude, longitude
+	from LOCATION
+	where Gu = #{Gu} and Dong = #{Dong}
+    </select>
+    
+<!--반경(위경도) 이용하여 CID 가져오기-->
+    <select id="findByOption" parameterType="com.dto.OptionDTO" resultType="com.dto.CampDTO">
+		select CID
+		from CAMP
+		where (latitude between #{minLat} and #{maxLat}) and (longitude between #{minLong} and #{maxLong}) and
+			environment = #{environment}and water_pool = #{water_pool} and 
+			playground = #{playground} and electricity = #{electricity} and wifi = #{wifi}
+    </select>
+
+
+</mapper>
