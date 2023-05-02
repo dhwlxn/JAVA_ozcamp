@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.CampMapper">
+
+<!--캠핑장 이름으로 CID 가져오기-->
+    <select id="findByName" parameterType="string" resultType="com.dto.CampDTO">
+        select CID, name, address
+        from CAMP
+        where name like '%'||#{name}||'%'
+    </select>
+
+<!--태그 이용하여 CID, 캠핑장이름, 위치, 위경도 가져오기-->
+    <select id="findByRecommendation" parameterType="com.dto.CampDTO" resultType="com.dto.CampDTO">
+		select CID, name, address, latitude, longitude
+		from CAMP
+		where environment = #{environment}and water_pool = #{water_pool} and 
+		playground = #{playground} and electricity = #{electricity} and wifi = #{wifi}
+    </select>
+
+<!--CID로 목록 가져오기-->
+    <select id="printNameList" parameterType="int" resultType="com.dto.CampDTO">
+	select name, address
+	from CAMP
+	where CID = #{cid}
+    </select>
+
+<!--CID로 해당 캠핑장의 모든 정보 가져오기-->
+    <select id="printDetailByCID" parameterType="int" resultType="com.dto.CampDTO">
+	select name, address, common_site, caravan_site, glamping_site, auto_site, electricity, wifi, 
+	water_pool,playground, environment, features
+	from CAMP
+	where CID = #{cid}
+    </select>
+    
+
+
+</mapper>
