@@ -79,7 +79,16 @@ public class Menu {
 	
 	// 사용자 메뉴
 	public static void userMenu() {
+<<<<<<< HEAD
+		
+		menuTitle("# menu");
+		System.out.println("                                          # 1. 캠핑장 검색");
+		System.out.println("                                          # 2. 캠핑장 추천");
+		System.out.println("                                          # 3. 마이 페이지");
+		
+=======
 
+>>>>>>> a9b95bd31529ce8f872b4cfce5e7ee552fbe49e4
 		// 사용자 입력받기
 		Scanner input = new Scanner(System.in);
 		String menuInput;
@@ -109,13 +118,20 @@ public class Menu {
 				// 마이페이지
 			}
 		}
+<<<<<<< HEAD
+
+		
+=======
 	}
 		
 	
+>>>>>>> a9b95bd31529ce8f872b4cfce5e7ee552fbe49e4
 //	
 //		CampRecommend.thema();
 //	    
 //	    
+<<<<<<< HEAD
+=======
 
 
 	// 새로운 메뉴를 위한 공백
@@ -131,6 +147,7 @@ public class Menu {
 		System.out.println();
 		System.out.println();
 
+>>>>>>> a9b95bd31529ce8f872b4cfce5e7ee552fbe49e4
 	}
 	
 }
