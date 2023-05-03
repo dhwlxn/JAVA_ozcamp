@@ -25,9 +25,9 @@ public class Camp {
 		Comment comment = new Comment();
 		comment.findByCamp(CID);
 		Wishlist wishlist = new Wishlist();
-		System.out.print("                             → 댓글을 추가하시려면 '1'을 입력해주세요!  \n");
-		System.out.println("                             → 위시리스트에 추가하시려면 '2'을 입력해주세요!  \n");
-		System.out.println("                             → 메인 메뉴로 돌아가시려면 '0'을 입력해주세요!  \n");
+		System.out.println("                             → '댓글'을 추가하시려면 '1'을 입력해주세요.");
+		System.out.println("                             → '위시리스트'에 추가하시려면 '2'을 입력해주세요.");
+		System.out.println("                             → '메인 메뉴'로 돌아가시려면 '0'을 입력해주세요!\n");
 		Scanner scan = new Scanner(System.in);
 
 		String searchNo;
@@ -90,14 +90,14 @@ public class Camp {
 		System.out.println("                     "+dto.getName());
 		System.out.println("                  ╭╼|════════════════════════════════════════════════════════|╾╮                  ");
 //		System.out.println("                     기본 정보");
-		System.out.println("                     주소: "+dto.getAddress());
-		System.out.println("                     캠핑장 키워드");
-		System.out.println("                       ▶ 테마: "+env);
+		System.out.println("                     # 주소 : "+dto.getAddress());
+		System.out.println("                     # 캠핑장 키워드");
+		System.out.println("                       ▶ 테마 : "+env);
 		if(dto.getFeatures() !=null) {
-			System.out.println("                       ▶ 편의 시설 ");
+			System.out.println("                       ▶ 편의 시설 : ");
 			System.out.println("                          "+dto.getFeatures());
 		}
-		System.out.println("                     #부대 시설");
+		System.out.println("                     # 부대 시설");
 
 		System.out.print("                        ");
 

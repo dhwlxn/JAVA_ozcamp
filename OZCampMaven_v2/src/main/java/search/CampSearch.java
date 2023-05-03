@@ -25,7 +25,6 @@ public class CampSearch {
         String searchName;
         boolean find = false;
 
-        Menu.spaceForNew();
         Menu.menuTitle("캠핑장 조회");
         System.out.println("                                     찾으시는 캠핑장 이름을 입력하세요. :)");
         while (true) {
@@ -71,7 +70,7 @@ public class CampSearch {
     public static void searchDetail(List<CampDTO> resultList) {
 
         System.out.println("                                  =================================");
-        System.out.println("                                     원하시는 캠핑장 번호을 입력하세요. :)");
+        System.out.println("                                     원하시는 캠핑장 번호를 입력하세요. :)");
         System.out.println("                                  =================================\n");
 
 
@@ -85,7 +84,6 @@ public class CampSearch {
             searchNo = input.nextLine();
             searchNum = Integer.parseInt(searchNo);
             if (searchNum >= 0 && searchNum <= resultList.size()) {
-                Menu.spaceForNew();
                 // 메인 페이지로 이동
                 if (searchNum == 0) {
                     Menu.userMenu(resultList);
