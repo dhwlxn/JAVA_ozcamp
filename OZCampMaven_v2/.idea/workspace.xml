@@ -4,37 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c916e7c9-13c2-48c6-91e4-961939e43005" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dto/CampDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dto/CampDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/menu/Camp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/menu/Camp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/menu/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/menu/Comment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/menu/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/menu/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/menu/Wishlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/menu/Wishlist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/page/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/page/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/search/CampRecommend.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/search/CampRecommend.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/search/CampSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/search/CampSearch.java" afterDir="false" />
-    </list>
+    <list default="true" id="100212e8-0562-4d8c-8b4f-2cfe64c92fe3" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
-  }
-}]]></component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="df946ad5-e49a-4e18-9d8f-757bda3d4f8e" />
-        <option name="url" value="git@github.com:dhwlxn/java_ozcamp.git" />
-      </UrlAndAccount>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
     </option>
   </component>
   <component name="MavenImportPreferences">
@@ -44,19 +24,23 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="2PGDmBOWbqQ9BuNpV0Mk3MXz1n4" />
+  <component name="ProjectId" id="2PGe61CVmhbApzIXhPMydUc1BT2" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -77,12 +61,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c916e7c9-13c2-48c6-91e4-961939e43005" name="Changes" comment="" />
-      <created>1683074684419</created>
+      <changelist id="100212e8-0562-4d8c-8b4f-2cfe64c92fe3" name="Changes" comment="" />
+      <created>1683087669841</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1683074684419</updated>
-      <workItem from="1683074685438" duration="3763000" />
+      <updated>1683087669841</updated>
+      <workItem from="1683087670830" duration="3654000" />
     </task>
     <servers />
   </component>
