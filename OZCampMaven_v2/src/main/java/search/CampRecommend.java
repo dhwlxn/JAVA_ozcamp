@@ -73,7 +73,7 @@ public class CampRecommend {
     public static void location(OptionDTO optionList) {
         LocationService service = new LocationServiceImpl();
         LocationDTO localList = new LocationDTO();
-
+        LocationDTO localResult = null;
 
         String Gu;
         String Dong;
@@ -90,9 +90,11 @@ public class CampRecommend {
             localList.setGu(Gu);
             localList.setDong(Dong);
 
+            
+            localResult = service.findByDistrict(localList);
 
             // 구, 동 예외처리
-            if (localList == null) {
+            if (localResult == null) {
                 System.out.println();
                 System.out.println("                                     서비스를 제공하지 않는 지역입니다. :(");
                 System.out.println("                                      ※현재는 서울 지역만 가능합니다.");
@@ -100,9 +102,8 @@ public class CampRecommend {
 
             } else {
                 //구, 동 받아서 위경도 반환(덮어쓰기)
-                localList = service.findByDistrict(localList);
                 // 반경 - 위경도 계산 후 optionList에 넣음
-                district(localList, optionList);
+                district(localResult, optionList);
                 break;
             }
         }
