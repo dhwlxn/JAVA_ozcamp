@@ -92,9 +92,9 @@ public class Camp {
 //		System.out.println("                     기본 정보");
 		System.out.println("                     주소: "+dto.getAddress());
 		System.out.println("                     캠핑장 키워드");
-		System.out.println("                       ▶ 테마: "+env);
+		System.out.println("                     ▶ 테마: "+env);
 		if(dto.getFeatures() !=null) {
-			System.out.println("                       ▶ 편의 시설 ");
+			System.out.println("                   ▶ 편의 시설 ");
 			System.out.println("                          "+dto.getFeatures());
 		}
 		System.out.println("                     #부대 시설");

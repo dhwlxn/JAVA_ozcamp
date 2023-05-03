@@ -15,7 +15,6 @@ public class Wishlist extends Board {
 
 		WishlistService service = new WishlistServiceImpl() ;
 		List<WishlistDTO> list = service.findAll(CUID);
-		//출력문 UI 수정 필요
 
 		//출력문 UI 수정 필요
 		System.out.println();
@@ -37,8 +36,24 @@ public class Wishlist extends Board {
 
 		WishlistService service = new WishlistServiceImpl() ;
 		WishlistDTO dto = new WishlistDTO(CUID, CID);
-		int n = service.insert(dto);
-		System.out.println("                                     내 위시리스트에 담겼습니다. :)");
+		List <WishlistDTO> findList = service.findAll(CUID); 
+		boolean find = false;
+		for (WishlistDTO list : findList)
+		{
+			if(list.getCAMP_CID() == CID)
+			{
+				System.out.println("                                    이미 담긴 캠핑장입니다. :(");
+				find = true;
+				break;
+				
+			}
+		}
+		if(!find)
+		{
+			int n = service.insert(dto);
+			System.out.println("                                     내 위시리스트에 담겼습니다. :)");
+			
+		}
 
 	} // insert end
 
@@ -69,7 +84,6 @@ public class Wishlist extends Board {
 
 		String answer = scan.next();
 		if(answer.equalsIgnoreCase("Y")) {
-
 			int n = service.delete(dto);
 			System.out.println("                                     위시리스트에서 삭제되었습니다 :)");
 			this.findAll(CUID);
