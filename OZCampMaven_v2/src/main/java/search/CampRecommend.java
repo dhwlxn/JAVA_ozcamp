@@ -23,7 +23,6 @@ public class CampRecommend {
         CampDTO detail = new CampDTO();
         boolean find = false;
 
-        Menu.spaceForNew();
         Menu.menuTitle("캠핑장 추천");
         while (true) {
             // 출발지 받아 반경 계산 후 최대최소 위경도 저장
@@ -44,14 +43,14 @@ public class CampRecommend {
             if (find) {
                 System.out.println();
                 System.out.println("                                  =================================");
-                System.out.printf("                                        선택한 옵션을 포함하는 캠핑장\n");
+                System.out.println("                                       선택한 옵션을 포함하는 캠핑장");
                 System.out.println("                                  =================================\n");
                 int i = 1;
                 for (CampDTO list : resultList) {
                     detail = serviceCamp.printDetailByCID(list.getCID());
-                    System.out.println("                                    " + i + ") " + detail.getName() + "\n"
-                            + "                                       ▶ " + detail.getAddress() + "\n"
-                            + "                                       ▶ 부대시설 ) " + detail.getFeatures() + "\n");
+                    System.out.println("                                  " + i + ") " + detail.getName() + "\n"
+                            + "                                     ▶ " + detail.getAddress() + "\n"
+                            + "                                     ▶ 부대시설 ) " + detail.getFeatures() + "\n");
                     i++;
                 }
                 break;
@@ -96,8 +95,8 @@ public class CampRecommend {
             // 구, 동 예외처리
             if (localResult == null) {
                 System.out.println();
-                System.out.println("                                     서비스를 제공하지 않는 지역입니다. :(");
-                System.out.println("                                      ※현재는 서울 지역만 가능합니다.");
+                System.out.println("                                  서비스를 제공하지 않는 지역입니다. :(");
+                System.out.println("                                    ※현재는 서울 지역만 가능합니다.");
                 System.out.println();
 
             } else {
@@ -182,6 +181,7 @@ public class CampRecommend {
                     && !answer.equals("산") && !answer.equals("숲")
                     && !answer.equals("바다") && !answer.equals("도심")
                     && !answer.equals("호수")) {
+                System.out.println();
                 System.out.println("                                     잘못된 입력입니다. 다시 입력해주세요.");
             }
 
@@ -206,7 +206,7 @@ public class CampRecommend {
     // tag(물놀이, 놀이터, 전기, wifi)
     public static void tag(OptionDTO optionList) {
 
-
+        System.out.println();
         System.out.println("                                     원하시는 캠핑장의 태그를 선택해주세요:)  ");
 
         CampRecommend myoption = new CampRecommend();
@@ -236,6 +236,7 @@ public class CampRecommend {
             answer = input.nextLine();
 
             if (!answer.equalsIgnoreCase("y") && !answer.equalsIgnoreCase("n")) {
+                System.out.println();
                 System.out.println("                                     잘못된 입력입니다. Y 또는 N을 입력해주세요.");
             }
 

@@ -52,11 +52,25 @@ public class Menu {
 	}
 
 
+	// 새로운 메뉴를 위한 공백
+	public static void spaceForNew() {
+
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println("                   ___________________________oz_camp___________________________");
+		System.out.println();
+		System.out.println();
+		System.out.println();
+	}
+
+
 	// 메뉴 타이틀 
 	public static void menuTitle(String menuName) {
+		spaceForNew();
 		System.out.println("                                                                                ");
 		System.out.println("                                    ╭╼|════════════════════|╾╮                  ");
-		System.out.println("                                              "+ menuName + "                           ");
+		System.out.println("                                             "+ menuName + "                           ");
 		System.out.println("                                    ╰╼|════════════════════|╾╯                  ");
 		System.out.println("                                                                                ");
 	}
@@ -96,7 +110,6 @@ public class Menu {
 
 	// 사용자 메뉴
 	public static void userMenu(List<CampDTO> resultList) {
-
 		menuTitle("# menu");
 		// 사용자 입력받기
 		Scanner input = new Scanner(System.in);
@@ -218,12 +231,20 @@ public class Menu {
 			case 1:
 			{
 				wishlist.findAll(CUID);
+				int answer;
 				System.out.println("                                          # 돌아가기 (0)");
-				System.out.print("                                     ▶          ");
-				int answer = input.nextInt();
-				if(answer == 0) {
-					myWishlist();
-				}
+				do {
+					System.out.print("                                     ▶          ");
+					answer = input.nextInt();
+					if(answer == 0) {
+						myWishlist();
+					}
+					else {
+						System.out.println();
+						System.out.println("                                          잘못된 입력입니다 :(");
+					}
+				}while(answer!=0);
+
 				break;
 			}// 조회하기   번호받아 해당 캠핑장 디테일페이지로 이동
 
@@ -232,12 +253,19 @@ public class Menu {
 			{
 				wishlist.findAll(CUID);
 				wishlist.delete(CUID);
+				int answer;
 				System.out.println("                                          # 돌아가기 (0)");
-				System.out.print("                                     ▶          ");
-				int answer = input.nextInt();
-				if(answer == 0) {
-					myWishlist();
-				}
+				do {
+					System.out.print("                                     ▶          ");
+					answer = input.nextInt();
+					if(answer == 0) {
+						myWishlist();
+					}
+					else {
+						System.out.println();
+						System.out.println("                                          잘못된 입력입니다 :(");
+					}
+				}while(answer!=0);
 				break;
 			}   // 삭제하기  번호 받아 삭제
 
@@ -278,13 +306,19 @@ public class Menu {
 			case 1:
 			{
 				comment.findAll(CUID);
+				int answer;
 				System.out.println("                                          # 돌아가기 (0)");
-				System.out.print("                                     ▶          ");
-				int answer = input.nextInt();
-				if(answer == 0) {
-					myComment();
-				}
-
+				do {
+					System.out.print("                                     ▶          ");
+					answer = input.nextInt();
+					if(answer == 0) {
+						myComment();
+					}
+					else {
+						System.out.println();
+						System.out.println("                                          잘못된 입력입니다 :(");
+					}
+				}while(answer!=0);
 				break;
 			}// 조회하기   번호받아 해당 캠핑장 디테일페이지로 이동
 
@@ -292,14 +326,19 @@ public class Menu {
 			{
 				comment.findAll(CUID);
 				comment.update(CUID);
+				int answer;
 				System.out.println("                                          # 돌아가기 (0)");
-				System.out.print("                                     ▶          ");
-				int answer = input.nextInt();
-				if(answer == 0) {
-					myComment();
-				}
-
-
+				do {
+					System.out.print("                                     ▶          ");
+					answer = input.nextInt();
+					if(answer == 0) {
+						myComment();
+					}
+					else {
+						System.out.println();
+						System.out.println("                                          잘못된 입력입니다 :(");
+					}
+				}while(answer!=0);
 				break;
 			}	// 수정하기  번호 받아 수정
 
@@ -307,13 +346,19 @@ public class Menu {
 			{
 				comment.findAll(CUID);
 				comment.delete(CUID);
+				int answer;
 				System.out.println("                                          # 돌아가기 (0)");
-				System.out.print("                                     ▶          ");
-				int answer = input.nextInt();
-				if(answer == 0) {
-					myComment();
-				}
-
+				do {
+					System.out.print("                                     ▶          ");
+					answer = input.nextInt();
+					if(answer == 0) {
+						myComment();
+					}
+					else {
+						System.out.println();
+						System.out.println("                                          잘못된 입력입니다 :(");
+					}
+				}while(answer!=0);
 				break;
 			}   // 삭제하기  번호 받아 삭제
 
@@ -327,30 +372,6 @@ public class Menu {
 		}
 	} // myComment end
 
-//
-//		CampRecommend.thema();
-//
-//
-
-	// 새로운 메뉴를 위한 공백
-//	
-//		CampRecommend.thema();
-//	    
-//	    
-
-	// 새로운 메뉴를 위한 공백
-	public static void spaceForNew() {
-
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println("                   ___________________________oz_camp___________________________");
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-	}
 
 	public static void ClearTerm() {
 		for(int i = 0; i<50; i++) {

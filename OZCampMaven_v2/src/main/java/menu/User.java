@@ -14,18 +14,12 @@ public class User {
 
     public void register() {
 
-        // 예외처리 추가 필요
-        /*
-         * 1. 아이디 중복 검사 / 비밀번호 확인
-         * 2. if possible, 비밀번호 암호화
-         */
         int IdCheck;
         String ID;
         String PW;
         String confirmPW;
         UserService service = new UserServiceImpl();
 
-        Menu.spaceForNew();
         Menu.menuTitle("# sign up");
 
         // ID 입력 받고 중복검사
@@ -34,7 +28,7 @@ public class User {
             ID = scan.next();
             IdCheck = service.isIdDuplicated(ID);
             if (IdCheck == 1) {
-                System.out.println("                                      이미 존재하는 ID입니다 :(");
+                System.out.println("                                      이미 존재하는 ID입니다. :(");
             } else {
                 break;
             }
@@ -49,7 +43,7 @@ public class User {
             confirmPW = scan.next();
 
             if (!PW.equals(confirmPW)) {
-                System.out.println("                                          비밀번호가 일치하지 않습니다 :(");
+                System.out.println("                                        비밀번호가 일치하지 않습니다. :(");
             }
         } while (!PW.equals(confirmPW));
 
@@ -64,8 +58,8 @@ public class User {
         UserDTO dto = new UserDTO(getCUID(), ID, PW);
         int n = 0;
         n = service.register(dto);
-
-        System.out.println("                                         회원가입이 완료되었습니다 :)");
+        System.out.println();
+        System.out.println("                                       회원가입이 완료되었습니다. :)");
         //} catch (DuplicatedIDException e) {
         //	System.out.println(e.getMessage());
         //}
@@ -78,7 +72,6 @@ public class User {
         String DB_PW = null;
         CUID = 0;
         boolean verify = false;
-        Menu.spaceForNew();
         Menu.menuTitle("# sign in");
         do {
             System.out.print("                                          ID : ");
@@ -92,7 +85,8 @@ public class User {
             try {
                 CUID = service.getCUID(dto); // 추가
             } catch (NullPointerException e) {
-                System.out.println("                                      존재하지 않는 ID입니다");
+                System.out.println();
+                System.out.println("                                    존재하지 않는 ID입니다.");
                 continue;
             }
 
@@ -100,14 +94,13 @@ public class User {
             if (PW.equals(DB_PW)) {
                 verify =true;
             } else {
-                System.out.println("                                      비밀번호가 일치하지 않습니다");
+                System.out.println("                                    비밀번호가 일치하지 않습니다.");
             }
 
 
         } while (!verify);
 
 
-        System.out.println("메뉴 진입");
 
         return getCUID();
     } // login end
@@ -139,8 +132,8 @@ public class User {
         else {
             Menu.myPage();
         }
-
-        System.out.println("                                         탈퇴가 완료되었습니다");
+        System.out.println();
+        System.out.println("                                         탈퇴가 완료되었습니다.");
         System.out.println("                                      그동안 이용해주셔서 감사합니다.");
         System.exit(0);
     }

@@ -14,15 +14,15 @@ public class CampDTO {
     String address;
     double latitude;
     double longitude;
-    char common_site;
-    char caravan_site;
-    char glamping_site;
-    char auto_site;
-    char electricity;
-    char wifi;
-    char water_pool;
-    char playground;
-    char environment;
+    int common_site;
+    int caravan_site;
+    int glamping_site;
+    int auto_site;
+    int electricity;
+    int wifi;
+    int water_pool;
+    int playground;
+    int environment;
     String features;
 
 
