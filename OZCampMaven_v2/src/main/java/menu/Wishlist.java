@@ -16,6 +16,7 @@ public class Wishlist extends Board {
 
 		WishlistService service = new WishlistServiceImpl() ;
 		List<WishlistDTO> list = service.findAll(CUID);
+    
 		System.out.println();
 		Menu.menuTitle("# 위시리스트");
 		System.out.println("                  ╭╼|════════════════════════════════════════════════════════|╾╮                  ");
@@ -47,7 +48,6 @@ public class Wishlist extends Board {
 
 		if(check){
 			System.out.println("                                     내 위시리스트에 담겼습니다. :)");}
-
 
 	} // insert end
 
@@ -83,7 +83,6 @@ public class Wishlist extends Board {
 
 		String answer = scan.next();
 		if(answer.equalsIgnoreCase("Y")) {
-
 			int n = service.delete(dto);
 			System.out.println("                                     위시리스트에서 삭제되었습니다. :)");
 			this.findAll(CUID);
